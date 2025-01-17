@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Casillas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="body_id">
+
+<div id="mensajes">...</div>
+
+
+<!-- Contenedor de la barra de progreso -->
+<div id="progress-container">
+    <div id="progress-bar">
+        <div id="progress-fill">
+            <span id="progress-text">Loading... 0%</span>
+        </div>
+    </div>
+</div>
+
+
+<div id="board-container"></div>
+
+<!--MODAL CLICK EN CELDA -->
+<!-- Primer Modal -->
+<div id="cellModal" class="modal">
+
+    <div class="modal-content">
+        <div id="modalTitle" class="modalTitle"></div> <!-- Título del modal -->
+        <div id="modalBody" class="modalBody">
+            <table id="modalTable"></table> <!-- Tabla dentro del modal -->
+            <div id="cellModalEstrellas">A</div>
+        </div>
+        <div id="modalFooter" class="modalFooter">
+            <button id="footerBtn">Upgrade</button> <!-- Botón en el pie -->
+        </div>
+    </div>
+    <button class="close-button"></button> <!-- Botón de cerrar (X) en la esquina superior derecha -->
+</div>
+
+<!-- Segundo Modal -->
+<div id="secondModal" class="modal">
+    <div class="modal-content">
+        <div id="secondModalTitle" class="modalTitle">Second Modal</div>
+        <div id="secondModalBody" class="modalBody">
+            <p>Welcome to the second modal!</p>
+        </div>
+        <div id="secondModalFooter" class="modalFooter">
+            <button id="secondFooterBtn">Close</button> <!-- Botón de cerrar en el segundo modal -->
+        </div>
+    </div>
+    <button class="close-button"></button> <!-- Botón de cerrar (X) en el segundo modal -->
+</div>
+
+<!-- Primer Modal_deposit -->
+<div id="cellModal_deposit" class="modal_deposit">
+    <div class="modal_deposit-content">
+        <div id="modalTitle_deposit" class="modalTitle_deposit"></div> <!-- Título del modal -->
+        <div id="modalBody_deposit" class="modalBody_deposit">
+            <table id="modalTable_deposit"></table> <!-- Tabla dentro del modal -->
+
+        </div>
+    </div>
+
+    <button id="close_deposit-button" class="close_deposit-button"></button> <!-- Botón de cerrar (X) en la esquina superior derecha -->
+</div>
+
+<!--MODAL DE CARGA-->
+<div id="screenBlocker_upgrade" class="screen-blocker_upgrade"></div>
+<div id="loadingModal_upgrade" class="modal_upgrade loading_upgrade">
+    <div class="loading_upgrade-content">
+        <div class="spinner_upgrade">
+            <img src="imgs/upgrade_load.gif" alt="Updating..." />
+        </div>
+        <p>Updating please wait...</p>
+    </div>
+</div>
+
+
+<!-- Primer Modal_withdrawal -->
+<div id="cellModal_withdrawal" class="modal_withdrawal">
+    <div class="modal_withdrawal-content">
+        <div id="modalTitle_withdrawal" class="modalTitle_withdrawal">Withdrawal</div> <!-- Título del modal -->
+
+        <div id="modalBody_withdrawal" class="modalBody_withdrawal">
+            <!-- Tabla dentro del modal -->
+            <table id="modalTable_withdrawal"></table>
+
+            <!-- Nuevo formulario para dirección y monto -->
+            <div class="withdrawalForm">
+                <!-- Input para la dirección -->
+                <label for="addressInput">Recipient Address:</label>
+                <input type="text" id="addressInput" placeholder="Enter recipient address" />
+
+                <!-- Nuevo input para la cantidad de ETH -->
+                <label for="amountInput">Amount (ETH):</label>
+                <input type="text" id="amountInput" placeholder="Enter amount to withdraw" />
+
+                <!-- Botón para proceder -->
+                <button id="copyButton">Proceed</button>
+                <label id="withdrawalFeeLabel">Fee (ETH):</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de cerrar (X) en la esquina superior derecha -->
+    <button id="close_withdrawal-button" class="close_withdrawal-button"></button>
+</div>
+
+
+
+
+
+<div id="dialog_withdrawal" class="dialog_withdrawal hidden_withdrawal">
+    <div class="dialog_withdrawal-content">
+        <p id="dialogMessage_withdrawal"></p>
+        <button id="closeDialog_withdrawal">Close</button>
+    </div>
+</div>
+
+
+
+<div id="dialog_withdrawal_alerta3" class="dialog_withdrawal_alerta3 hidden_withdrawal_alerta3">
+    <div class="dialog_withdrawal-content_alerta3">
+        <div id="dialogMessage_withdrawal_alerta3">
+            <!-- Las filas serán generadas aquí dinámicamente -->
+        </div>
+        <button id="closeDialog_withdrawal_alerta3">Close</button>
+    </div>
+</div>
+
+
+<script src="script.js"></script>
+<script src="scripts/CONSTANTES.js"></script>
+<script src="scripts/VARIABLES.js"></script>
+<script src="scripts/CREATOR.js"></script>
+<script src="scripts/FUNCIONES.js"></script>
+<script src="scripts/DEPOSIT.js"></script>
+<script src="scripts/WITHDRAWAL.js"></script>
+<script src="scripts/MINEROS.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/ethers/dist/ethers.umd.min.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+
+<!-- Agregar Firebase SDK a tu proyecto -->
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.0/dist/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+<!-- GOOGLE_DRIVE MIGRACION -->
+<script src="scripts/google_drive_migracion/GetFecha.js"></script>
+<script src="scripts/google_drive_migracion/_pendientes/PendientesGet.js"></script>
+<script src="scripts/google_drive_migracion/_deposit/DepositAlertaGet.js"></script>
+<script src="scripts/google_drive_migracion/_deposit/DepositAlertaUpdate.js"></script>
+<script src="scripts/google_drive_migracion/_deposit/DepositGet.js"></script>
+<script src="scripts/google_drive_migracion/_tareas/TareasSet.js"></script>
+<script src="scripts/google_drive_migracion/_mineros/MinerosGet.js"></script>
+<script src="scripts/google_drive_migracion/_mineros/MinerosAlertaUpdate.js"></script>
+<script src="scripts/google_drive_migracion/_withdraw/WithdrawAlertaUpdate.js"></script>
+
+</body>
+</html>
